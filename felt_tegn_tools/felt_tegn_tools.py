@@ -175,8 +175,7 @@ class FeltTegnTools:
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
             self.iface.removePluginMenu(
-                self.tr(u'&FeltTegn Tools'),s
-                action)
+                self.tr(u'&FeltTegn Tools'),action)
             self.iface.removeToolBarIcon(action)
 
 
