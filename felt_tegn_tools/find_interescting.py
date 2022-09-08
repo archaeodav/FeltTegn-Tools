@@ -24,8 +24,10 @@ class FindIntersections():
         
         self.polys = polys
         
+        self.intersecting = self.get_intersecting()
         
-    def get_interescting(self):
+        
+    def get_intersecting(self):
         
         intersecting = []
         
@@ -47,13 +49,39 @@ class FindIntersections():
                         f2_area = f2_geom.area()
                         
                         if f1_area < f2_area:
-                            intersection = (f1_id,f2_id,f1_geom.boundingBox())
+                            intersection = (f1_id,
+                                            f2_id,
+                                            f1_geom.boundingBox(),
+                                            f1_geom.area())
                         else:
-                            intersection = (f2_id,f1_id,f2_geom.boundingBox())
+                            intersection = (f2_id,
+                                            f1_id,
+                                            f2_geom.boundingBox(),
+                                            f2_geom.area())
                             
                 if not intersection is None:
                     if not intersection in intersecting:
                         intersecting.append(intersection)
         
         return intersecting
+    
+    def get_intersection(self,
+                         idx):
+        
+        return self.intersecting
+    
+    def get_multiple(self):
+        multiples = {}
+        
+        for row in self.intersecting:
+            if not row[1] in multiples.keys():
+                multiples[row[1]]=[(row[0],row[2]),row[3]]
+                
+            else:
+                multiples[row[1]].append((row[0],row[2],row[3]))
+                
+        return multiples
+    
+    
+            
     
