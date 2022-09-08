@@ -56,3 +56,4 @@ class FindIntersections():
                         intersecting.append(intersection)
         
         return intersecting
+    

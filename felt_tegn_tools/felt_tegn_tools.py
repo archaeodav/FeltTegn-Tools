@@ -31,6 +31,8 @@ from .resources import *
 from .felt_tegn_tools_dialog import FeltTegnToolsDialog
 import os.path
 
+import find_intersecting
+
 
 class FeltTegnTools:
     """QGIS Plugin Implementation."""
